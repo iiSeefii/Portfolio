@@ -19,6 +19,7 @@
     font-size:16px;
   }
   *{box-sizing:border-box; margin:0; padding:0;}
+img,canvas{max-width:100%;height:auto;}
   html{scroll-behavior:smooth;}
   body{
     background:var(--bg-deep);
@@ -274,12 +275,42 @@
     font-family:'JetBrains Mono', monospace; font-size:0.75rem;
   }
 
-  @media (max-width:760px){
-    nav{display:none;}
-    .about-grid{grid-template-columns:1fr;}
+  @media (max-width:992px){
+    header{padding:18px 5%;}
+    nav{gap:18px;}
+    .skills-grid{grid-template-columns:repeat(2,1fr);}
     .project{grid-template-columns:1fr;}
-    section{padding:110px 6% 60px;}
-  }
+    .about-grid{grid-template-columns:1fr;gap:40px;}
+}
+@media (max-width:768px){
+    html{font-size:15px;}
+    header{padding:16px 20px;}
+    .logo{font-size:22px;}
+    nav{display:none;}
+    section{padding:90px 20px 60px;}
+    .hero{min-height:100svh;justify-content:center;}
+    .hero h1{font-size:clamp(2.2rem,10vw,3.5rem);line-height:1.15;}
+    .hero p.lede{font-size:1rem;max-width:100%;}
+    .hero-cta{width:100%;}
+    .scroll-cue{display:none;}
+    .sec-head{gap:12px;margin-bottom:30px;}
+    .sec-head h2{font-size:1.6rem;}
+    .skills-grid{grid-template-columns:1fr;}
+    .project{padding:24px;}
+    .project-links{flex-wrap:wrap;gap:12px;}
+    .contact-box{padding:35px 22px;}
+    .contact-box h2{font-size:1.8rem;}
+    .icon-btn::after{display:none;}
+    footer{padding:28px 20px 35px;}
+}
+@media (max-width:480px){
+    html{font-size:14px;}
+    .hero h1{font-size:2rem;}
+    .eyebrow{font-size:15px;}
+    .project{padding:20px;}
+    .stack span{font-size:.65rem;}
+    .contact-box{padding:28px 18px;}
+}
 
   :focus-visible{outline:2px solid var(--accent); outline-offset:3px;}
   @media (prefers-reduced-motion: reduce){
@@ -425,7 +456,7 @@
 const canvas = document.getElementById('sky');
 const ctx = canvas.getContext('2d');
 let w, h, nodes = [];
-const NODE_COUNT = 70;
+const NODE_COUNT = window.innerWidth < 768 ? 30 : 70;
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 function resize(){
