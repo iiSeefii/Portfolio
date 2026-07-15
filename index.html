@@ -32,7 +32,6 @@ img,canvas{max-width:100%;height:auto;}
   .mono{font-family:'JetBrains Mono', monospace; letter-spacing:0.02em;}
   a{color:inherit; text-decoration:none;}
 
-  /* ---------- Background canvas (signature) ---------- */
   #sky{
     position:fixed; inset:0; width:100%; height:100%;
     z-index:0; background:
@@ -41,7 +40,6 @@ img,canvas{max-width:100%;height:auto;}
       var(--bg-deep);
   }
 
-  /* ---------- Layout shell ---------- */
   .wrap{position:relative; z-index:1;}
   header{
     position:fixed; top:0; left:0; right:0; z-index:10;
@@ -67,7 +65,6 @@ img,canvas{max-width:100%;height:auto;}
   position:relative;
   padding-bottom:4px;
   display:inline-block;
-
   background:linear-gradient(90deg, var(--gray), var(--gray));
   background-size:200% auto;
   background-position:0% center;
@@ -76,7 +73,6 @@ img,canvas{max-width:100%;height:auto;}
   -webkit-text-fill-color:transparent;
   color:transparent;
   -webkit-font-smoothing:antialiased;
-
   animation:gradientFlow 10s ease infinite;
   transition:background-image 0.3s ease, background-position 0.4s ease;
 }
@@ -100,7 +96,6 @@ img,canvas{max-width:100%;height:auto;}
 
   section{padding:140px 6% 80px; max-width:1100px; margin:0 auto; position:relative;}
 
-  /* ---------- Hero ---------- */
   .hero{
     min-height:100vh; display:flex; flex-direction:column; justify-content:center;
     padding-top:0;
@@ -110,8 +105,6 @@ img,canvas{max-width:100%;height:auto;}
     letter-spacing:0.12em; text-transform:uppercase; margin-bottom:18px;
     display:flex; align-items:center; gap:10px;
   }
-
-
   .eyebrow::before{
     content:''; width:8px; height:8px; border-radius:50%;
     background:var(--accent); box-shadow:0 0 12px var(--accent);
@@ -128,18 +121,19 @@ img,canvas{max-width:100%;height:auto;}
   .hero p.lede{
     margin-top:24px; max-width:540px; color:var(--gray); font-size:1.05rem;
   }
+
+  /* ---------- CTA area ---------- */
   .hero-cta{
-  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  display:flex;
-  flex-direction:column;
-  gap:14px;
-  margin-top:40px;
-  align-items:flex-start;
+    display:flex;
+    flex-direction:column;
+    gap:22px;
+    margin-top:40px;
+    align-items:flex-start;
   }
-  .hero-cta-row{
-  display:flex;
-  gap:24px;
-  flex-wrap:wrap;
+  .cta-primary{
+    display:flex;
+    gap:28px;
+    flex-wrap:wrap;
   }
   .link-grad{
     font-family:'Space Grotesk', sans-serif;
@@ -177,19 +171,43 @@ img,canvas{max-width:100%;height:auto;}
     transform:scaleX(1);
   }
 
+  /* CV row: same visual language as primary CTAs, separated by position + a small label */
+  .cta-cv{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+  }
+  .cta-cv .cv-label{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.7rem;
+    color:var(--gray);
+    text-transform:uppercase;
+    letter-spacing:0.1em;
+  }
+  .cv-links{
+    display:flex;
+    gap:28px;
+    flex-wrap:wrap;
+  }
+  .cv-btn{
+    font-size:0.95rem;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+  }
+  .cv-btn svg{width:15px; height:15px; flex-shrink:0; color:var(--accent);}
+
   .scroll-cue{
     position:absolute; bottom:48px; left:0; font-size:0.75rem; color:var(--gray);
     display:flex; align-items:center; gap:10px; font-family:'JetBrains Mono', monospace;
   }
   .scroll-cue .line{width:1px; height:36px; background:linear-gradient(to bottom, var(--gray), transparent);}
 
-  /* ---------- Section headers ---------- */
   .sec-head{display:flex; align-items:baseline; gap:18px; margin-bottom:48px;}
   .sec-num{font-family:'JetBrains Mono', monospace; color:var(--accent-dim); font-size:0.85rem;}
   .sec-head h2{font-size:1.9rem; color:var(--beige);}
   .sec-line{flex:1; height:1px; background:var(--gray-line);}
 
-  /* ---------- About ---------- */
   .about-grid{display:grid; grid-template-columns:1.3fr 1fr; gap:60px;}
   .about-grid p{color:var(--gray); margin-bottom:16px; font-size:1rem;}
   .about-grid strong{color:var(--beige); font-weight:600;}
@@ -198,7 +216,6 @@ img,canvas{max-width:100%;height:auto;}
   .fact .k{font-family:'JetBrains Mono', monospace; font-size:0.72rem; color:var(--gray); text-transform:uppercase; letter-spacing:0.1em;}
   .fact .v{color:var(--beige); font-size:1rem; margin-top:4px;}
 
-  /* ---------- Skills ---------- */
   .skills-grid{display:grid; grid-template-columns:repeat(4, minmax(150px,1fr)); gap:14px;}
   .skill{
     border:1px solid rgba(91,124,250,0.16);
@@ -239,7 +256,6 @@ img,canvas{max-width:100%;height:auto;}
     50%{background-position:100% center;}
     100%{background-position:0% center;}
   }
-  /* ---------- Projects ---------- */
   .project{
     border:1px solid var(--gray-line); border-radius:4px; padding:36px;
     margin-bottom:24px; transition:border-color 0.3s, background 0.3s;
@@ -264,7 +280,6 @@ img,canvas{max-width:100%;height:auto;}
   .project-links a{font-size:0.85rem; color:var(--beige); border-bottom:1px solid var(--gray-line); padding-bottom:2px; transition:border-color 0.25s, color 0.25s;}
   .project-links a:hover{color:var(--accent); border-color:var(--accent);}
 
-  /* ---------- Contact ---------- */
   .contact-box{
     border:1px solid var(--gray-line); border-radius:4px; padding:56px;
     text-align:center; background:linear-gradient(160deg, rgba(91,124,250,0.06), transparent);
@@ -330,8 +345,6 @@ img,canvas{max-width:100%;height:auto;}
 }
 .icon-btn svg{width:20px; height:20px;}
 .icon-btn:hover{border-color:var(--accent); color:var(--accent); transform:translateY(-3px);}
-
-/* tooltip */
 .icon-btn::after{
   content:attr(data-tooltip);
   position:absolute; bottom:120%; left:50%; transform:translateX(-50%) translateY(4px);
@@ -368,16 +381,28 @@ img,canvas{max-width:100%;height:auto;}
       With experience in Python, Excel, and Power BI, I build clear, 
       interactive dashboards and deliver insights that are easy to understand and act upon.
     </p>
+
     <div class="hero-cta">
-      <div class="hero-cta-row">
+      <div class="cta-primary">
         <a href="#work" class="link-grad">View my work</a>
         <a href="#contact" class="link-grad">Get in touch</a>
       </div>
-      <div class="hero-cta-row">
-        <a href="Seif CV.pdf" target="_blank" class="link-grad">View CV</a>
-        <a href="Seif CV.pdf" download class="link-grad">Download CV</a>
+
+      <div class="cta-cv">
+        <div class="cv-label mono">Resume</div>
+        <div class="cv-links">
+          <a href="Seif_Muhammad_CV.pdf" target="_blank" class="link-grad cv-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+            View CV
+          </a>
+          <a href="Seif_Muhammad_CV.pdf" download class="link-grad cv-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+            Download CV
+          </a>
+        </div>
       </div>
     </div>
+
     <div class="scroll-cue"><div class="line"></div>scroll</div>
   </section>
 
@@ -469,7 +494,6 @@ img,canvas{max-width:100%;height:auto;}
 </div>
 
 <script>
-// ---- Constellation / data-network signature ----
 const canvas = document.getElementById('sky');
 const ctx = canvas.getContext('2d');
 let w, h, nodes = [];
@@ -502,7 +526,6 @@ window.addEventListener('mousemove', e=>{mouse.x=e.clientX; mouse.y=e.clientY;})
 
 function draw(){
   ctx.clearRect(0,0,w,h);
-  // update
   if(!reduceMotion){
     nodes.forEach(n=>{
       n.x += n.vx; n.y += n.vy;
@@ -510,7 +533,6 @@ function draw(){
       if(n.y<0||n.y>h) n.vy*=-1;
     });
   }
-  // connections
   for(let i=0;i<nodes.length;i++){
     for(let j=i+1;j<nodes.length;j++){
       const a=nodes[i], b=nodes[j];
@@ -525,7 +547,6 @@ function draw(){
         ctx.stroke();
       }
     }
-    // line to mouse for nearby nodes (subtle parallax feel)
     const dxm = nodes[i].x-mouse.x, dym = nodes[i].y-mouse.y;
     const dm = Math.sqrt(dxm*dxm+dym*dym);
     if(dm<170){
@@ -536,7 +557,6 @@ function draw(){
       ctx.stroke();
     }
   }
-  // nodes
   nodes.forEach(n=>{
     ctx.beginPath();
     ctx.arc(n.x,n.y,n.r,0,Math.PI*2);
@@ -547,7 +567,6 @@ function draw(){
 }
 draw();
 
-// ---- Scroll fade-in for sections ----
 const observer = new IntersectionObserver((entries)=>{
   entries.forEach(entry=>{
     if(entry.isIntersecting){
